@@ -9,3 +9,12 @@ When a product page on Tango.info is loaded the metadata from Tango.Info's track
 
 The matching is done purely by track number and disc number so it is very important to select the proper tracks to be updated in the library.
 
+
+Still to do
+============
+
+Localization.  
+
+icons for browser buttons.
+
+preferences choices for website languages as available by Tango.Info, Todo Tango, and Wikipedia.
