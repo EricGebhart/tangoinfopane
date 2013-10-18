@@ -456,8 +456,9 @@ function onDisplayPaneMenuPopup(commandString, menupopup, documentElement) {
             if (this.keyword == ""){
                 url = "http://www.todotango.com/english/creadores/default.asp"
             } else {
-                url = "http://www.google.com/search?btnI=I%27m+Feeling+Lucky" +
-                      "&ie=UTF-8&oe=UTF-8&q=" + "site:todotango.com " + escape(this.keyword);
+                url = "http://www.todotango.com/english/Buscador_resultados.aspx?cx=001934125180297279526%3Ahgopipygwny&cof=FORID%3A10&ie=UTF-8&q=" + escape(this.keyword) + "&sa=Buscar"
+                //url = "http://www.google.com/search?btnI=I%27m+Feeling+Lucky" +
+                 //     "&ie=UTF-8&oe=UTF-8&q=" + "site:todotango.com " + escape(this.keyword);
             }
         }
     }
