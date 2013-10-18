@@ -1,0 +1,20 @@
+<!ENTITY tangoinfo.welcome.headline "Welcome to the Tango Info Pane!">
+<!ENTITY tangoinfo.welcome.description "Tango Info Pane is a music information browser and metadata updater.">
+<!ENTITY tangoinfo.welcome.features "Basic Functionality:">
+<!ENTITY tangoinfo.welcome.howtouseCaption "Tango.Info Usage Scenario:">
+<!ENTITY tangoinfo.welcome.feature1 "This pane is essentially a web browser that will open up the Tango.Info discography page, the Todo Tango page or the Wikipedia page for the currently selected or playing Album Artist, Artist, Composer or Song.">
+<!ENTITY tangoinfo.welcome.disclaimer "This extension is developed and maintained by Eric Gebhart (e.a.gebhart@gmail.com) and is not directly associated with Tango.Info, Wikipedia, or TodoTango.com.">
+<!ENTITY tangoinfo.welcome.feature2 "There is extended functionality when using the Tango.Info mode.">
+<!ENTITY tangoinfo.welcome.feature3 "When viewing the CD/Album product page on Tango.Info the 'View Tracks' button will be enabled. Viewing tracks will show a listing of the track metadata from Tango.Info for that album. Pressing the 'Back' button will take you back to browser mode.">
+<!ENTITY tangoinfo.welcome.feature4 "The Tracks view also comes with a toolbox which allows for syncing of the Tango.Info data with your library data.">
+<!ENTITY tangoinfo.welcome.feature5 "This process only matches on track number and disc number so it is very important to select the proper tracks in your library before clicking 'Update Library'!">
+<!ENTITY tangoinfo.welcome.howtouse "The best way to use this functionality is to highlight the tracks for the CD you wish to update, find the album name in the discography listing and click on the 'info' link. Then click the 'view Tracks' button. Check the fields you wish to update and click 'Update library'.">
+<!ENTITY tangoinfo.welcome.howtouse1 "Checking the 'Extract from Artist' box will result in a separated artist and album artist. But will only update the fields as checked. This makes it possible to update both fields or either field separately.">
+<!ENTITY tangoinfo.welcome.howtouse2 "It is vitally important to insure that the track numbers and disc numbers are correct, and match the tracks listed in the Tracks View. Disc Number is not vitally to single CD's but is required for proper updating of multiple CD sets. Proper ordering of tracks is not required but the track numbers must be correct.">
+<!ENTITY tangoinfo.welcome.howtouse3 "If only one track is selected, that will be the only track updated. The number of tracks updated will not exceed the number of tracks listed in the Track View.">
+<!ENTITY tangoinfo.welcome.warning "TangoInfo only matches on track number and disc number if it is set. If you select the wrong tracks they will be updated incorrectly!">
+
+<!ENTITY tangoinfo.welcome.howtouse.noteaboutfocustrack "Please note: The use of add-ons which change the selection (e.g. FocusTrack) might be dangerous, since updates always operate on the current selection. So make sure to disable them or at least make sure they do not change the selection unexpectedly.">
+<!ENTITY tangoinfo.welcome.howtouse.tooltips "">
+<!ENTITY tangoinfo.welcome.about "">
+<!ENTITY tangoinfo.welcome.close "Close this window">

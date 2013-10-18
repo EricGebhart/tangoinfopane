@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+
+<window title="TangoInfo"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        onload="doLoad();"
+        onunload="doUnload();"
+        >
+
+        <!--
+<dialog id="TI-Tracks" title="Tango.Info"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        onload="window.sizeToContent();"
+        buttons="accept,cancel"
+        buttonlabelcancel="Cancel"
+        buttonlabelaccept="Update"
+        buttonaccesskeyaccept="u"
+        buttonaccesskeycancel="c"
+        height="600px"
+        width="1100px">
+
+        -->
+
+
+<dialogheader title="Album Tracks" description="Track meta data from Tango.Info"/>
+<tree id="trackstree" flex="1" enableColumnDrag="true">
+
+  <treecols>
+    <!--
+    <treecol id="in_count" label="in_count" flex="1" persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+    -->
+      <treecol id="tracknumber" label="track" flex="1" width="5en" persist="width ordinal hidden" />
+    <splitter class="tree-splitter" />
+      <treecol id="title" label="Title" flex="1"  persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+      <treecol id="genre" label="genre" flex="1"  width="7em" persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+      <treecol id="date" label="date" flex="1"  width="10em" persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+      <treecol id="album-artist" label="album artist" flex="1" persist="width ordinal hidden" />
+    <splitter class="tree-splitter" />
+      <treecol id="artist" label="artist" flex="1"  persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+      <treecol id="album" label="album" flex="1"  persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+      <treecol id="discnumber" label="disc" flex="1" width="5en" persist="width ordinal hidden" />
+      <!--
+    <splitter class="tree-splitter" />
+      <treecol id="tinp" label="tinp" flex="1" width="14en" persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+    <treecol id="tiwc" label="tiwc" flex="1" persist="width ordinal hidden" />
+    <splitter class="tree-splitter" />
+    <treecol id="iso-639-3" label="iso 639 3" flex="1"  persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+    <treecol id="album-collection" label="album collection" flex="1"  persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+    <treecol id="tinp-replacement" label="tinp replacement" flex="1"  persist="width ordinal hidden"/>
+     -->
+  </treecols>
+  <treechildren/>
+
+</tree>
+</window>

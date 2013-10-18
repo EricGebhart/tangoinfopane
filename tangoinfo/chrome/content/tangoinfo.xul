@@ -1,0 +1,192 @@
+﻿<?xml version="1.0"?>
+<!--
+/*
+//
+// */
+-->
+<?xml-stylesheet href="chrome://songbird/skin/songbird.css" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://songbird/locale/songbird.dtd" >
+
+<window title="TangoInfo"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        onload="doLoad();"
+        onunload="doUnload();"
+        >
+
+    <hbox style="margin:1em;margin-right:1em" flex="1">
+
+        <groupbox flex="1">
+            <toolbox>
+               <toolbar id="nav-toolbar">
+                  <toolbarbutton label="Back" id="backbutton"/>
+                  <toolbarbutton label="Forward" id="forwardbutton"/>
+                  <toolbarbutton label="View Tracks" id="ViewTracks" disabled="true"/>
+
+                  <label value = " "/>
+                  <toolbarseparator />
+                  <label value = " "/>
+                  <hbox>
+                      <toolbarbutton  id="Selected" label="Selected" type="radio" group="selection" checked="true"/>
+                      <toolbarbutton  id="Nowplaying" label="Now Playing" type="radio" group="selection"/>
+                  </hbox>
+                  <label value = " "/>
+                  <toolbarseparator />
+                  <label value = " "/>
+                  <hbox>
+                      <toolbarbutton  id="TI" label="Tango.Info" checked="true" type="radio" group="source"/>
+                      <toolbarbutton  id="Todotango" label="Todo Tango" type="radio" group="source"/>
+                      <toolbarbutton  id="Wikipedia" label="Wikipedia" type="radio" group="source"/>
+                  </hbox>
+                  <label value = " "/>
+                  <toolbarseparator />
+                  <label value = " "/>
+                  <hbox>
+                      <toolbarbutton  id="TI-AA" label="Album Artist" checked="true" type="radio" group="search"/>
+                      <toolbarbutton  id="TI-A" label="Artist" type="radio" group="search"/>
+                      <toolbarbutton  id="TI-C" label="Composer" type="radio" group="search"/>
+                      <toolbarbutton  id="TI-TN" label="Song" type="radio" group="search"/>
+                  </hbox>
+                  <label value = " "/>
+                  <toolbarseparator />
+                  <label value = " "/>
+                  <toolbarbutton label="Find" id="findbutton"/>
+                  <textbox id="SearchField" type="search" searchbutton="true"/>
+                  <toolbarbutton  id="helpbutton" label="Help"/>
+                </toolbar>
+            </toolbox>
+
+            <hbox id="browserbox" flex="1">
+
+                <browser id="tangoinfo.browser" type="content" flex="1" cangoback="1" src="http://tango.info"/>
+            </hbox>
+
+<tree id="trackstree" flex="1" enableColumnDrag="true" style="display:none;">
+
+  <treecols>
+    <!--
+    <treecol id="in_count" label="in_count" flex="1" persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+    -->
+      <treecol id="tracknumber" label="Track" flex="1" width="5en" persist="width ordinal hidden" />
+    <splitter class="tree-splitter" />
+      <treecol id="title" label="Title" flex="1"  persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+      <treecol id="genre" label="Genre" flex="1"  width="7em" persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+      <treecol id="date" label="Date" flex="1"  width="10em" persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+      <treecol id="album-artist" label="Album Artist" flex="1" persist="width ordinal hidden" />
+    <splitter class="tree-splitter" />
+      <treecol id="artist" label="Artist" flex="1"  persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+      <treecol id="album" label="Album" flex="1"  persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+      <treecol id="discnumber" label="Disc" flex="1" width="5en" persist="width ordinal hidden" />
+    <splitter class="tree-splitter" />
+    <treecol id="album-collection" label="Album Collection" flex="1"  persist="width ordinal hidden"/>
+      <!--
+    <splitter class="tree-splitter" />
+      <treecol id="tinp" label="tinp" flex="1" width="14en" persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+    <treecol id="tiwc" label="tiwc" flex="1" persist="width ordinal hidden" />
+    <splitter class="tree-splitter" />
+    <treecol id="iso-639-3" label="iso 639 3" flex="1"  persist="width ordinal hidden"/>
+    <splitter class="tree-splitter" />
+    <treecol id="tinp-replacement" label="tinp replacement" flex="1"  persist="width ordinal hidden"/>
+     -->
+  </treecols>
+  <treechildren/>
+
+</tree>
+
+        </groupbox>
+
+        <groupbox id="tangoinfo-toolbox" hidden="1" style="display:none;">
+         <vbox>
+          <groupbox >
+              <button id="TI_Apply" label="Update Library"/>
+              <checkbox id="TI_onlyEmpty" label="Only update empty fields" selected="false"/>
+              <hbox flex="1">
+                  <button id="TI_clear" label="Clear All"/>
+                  <button id="TI_select" label="Select All"/>
+              </hbox>
+          </groupbox>
+          <groupbox >
+
+            <groupbox>
+                <!-- <description value="Album Artist and Artist"/> -->
+                <hbox flex="1">
+                 <checkbox id="TI_AArtist" label="Album Artist" selected="false"/>
+                 <checkbox id="TI_Artist" label="Artist" selected="false"/>
+                </hbox>
+                 <separator class="groove-thin" orient="horizontal"/>
+                 <checkbox id="TI_AA_A" label="Extract from Artist" selected="false"/>
+                 <!--<checkbox id="TI_A_instrumental" label="Clear Artist if match" selected="false"/>
+                      -->
+             </groupbox>
+
+                 <!--<checkbox id="TI_composer" label="Composer" selected="false"/>-->
+             <groupbox>
+                 <hbox>
+                     <vbox>
+                         <checkbox id="TI_trackname" label="Title" selected="false"/>
+                         <checkbox id="TI_album-title" label="Album title" selected="false"/>
+                         <!-- <checkbox id="TI_disc-number" label="Disc Number" selected="false"/>
+                              -->
+                     </vbox>
+                     <vbox>
+                         <checkbox id="TI_genre" label="Genre" selected="false"/>
+                         <checkbox id="TI_year" label="Year" selected="false"/>
+                     </vbox>
+                 </hbox>
+             </groupbox>
+
+             <groupbox>
+                 <!-- <description value="Append to comment"/> -->
+                 <radiogroup>
+                     <hbox flex="1">
+                         <radio id="TI_comment" label = "Comment" selected="true"/>
+                         <radio id="TI_description" label = "Description"/>
+                     </hbox>
+                 </radiogroup>
+                 <radiogroup>
+                     <hbox flex="1">
+                         <radio id="TI_prepend" label = "Prepend"/>
+                         <radio id="TI_update" label = "update"/>
+                         <radio id="TI_append" label = "Append" selected="true"/>
+                     </hbox>
+                 </radiogroup>
+                 <checkbox id="TI_tinp" label="TINP" selected="false"/>
+                 <checkbox id="TI_Collection" label="Collection" selected="false"/>
+                 <checkbox id="TI_perfDate" label="Performance Date" selected="false"/>
+             </groupbox>
+           </groupbox>
+         </vbox>
+        </groupbox>
+
+        <browser id="tangoinfo_tracktagger" width="200" height="200"
+              frameborder="0" scrolling="auto" style="display:none;"/>
+
+     </hbox>
+
+
+
+
+<!-- SCRIPTS -->
+<script type="application/x-javascript" src="chrome://tangoinfo/content/tangoinfo.js" />
+<script type="application/x-javascript" src="chrome://songbird/content/scripts/sbDataRemoteUtils.js" />
+
+<script>
+  <![CDATA[
+    function doLoad()
+    {
+      extension.Controller.onLoad();
+    }
+    function doUnload()
+    {
+      extension.Controller.onUnLoad();
+    }
+  ]]>
+  </script>
+</window>

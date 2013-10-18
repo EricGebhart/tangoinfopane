@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+     xmlns:songbird="http://www.songbirdnest.com/2007/addon-metadata-rdf#">
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>tangoinfoPane@songbirdnest.com</em:id>
+    <em:type>2</em:type>
+    <em:name>TangoInfoPane</em:name>
+    <em:version>2.0</em:version>
+    <em:creator>Eric Gebhart</em:creator>
+
+    <em:iconURL>chrome://tangoninfo/skin/icon.png</em:iconURL>
+
+    <em:description>Shows tango info content pane</em:description>
+
+    <em:optionsURL>chrome://tangoninfo/content/options.xul</em:optionsURL>
+
+    <em:targetApplication>
+      <Description>
+        <em:id>songbird@songbirdnest.com</em:id>
+        <em:minVersion>1.1</em:minVersion>
+        <em:maxVersion>2.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+
+    <em:targetApplication>
+      <Description>
+        <em:id>nightingale@getnightingale.com</em:id>
+        <em:minVersion>1.11.0a</em:minVersion>
+        <em:maxVersion>2.2.0a</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+
+
+
+    <songbird:displayPane>
+      <Description>
+        <songbird:contentTitle>TangoInfoPane</songbird:contentTitle>
+        <songbird:contentUrl>chrome://tangoinfo/content/tangoinfo.xul</songbird:contentUrl>
+        <songbird:contentIcon>chrome://tangoinfo/skin/pane-icon.png</songbird:contentIcon>
+        <songbird:defaultWidth>200</songbird:defaultWidth>
+        <songbird:defaultHeight>300</songbird:defaultHeight>
+        <songbird:suggestedContentGroups>contentpane</songbird:suggestedContentGroups>
+        <songbird:showOnInstall>true</songbird:showOnInstall>
+      </Description>
+    </songbird:displayPane>
+
+
+
+  </Description>
+</RDF>

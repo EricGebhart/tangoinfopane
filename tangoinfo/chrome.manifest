@@ -1,0 +1,4 @@
+content tangoinfo  chrome/content/
+locale  tangoinfo  en-US  chrome/locale/en-US/
+skin    tangoinfo  classic/1.0 chrome/skin/
+overlay windowtype:Songbird:Main chrome://tangoinfo/content/extension.xul

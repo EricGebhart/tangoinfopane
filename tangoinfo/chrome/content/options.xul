@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE prefwindow SYSTEM "chrome://tangoinfo/locale/options.dtd">
+  
+<!-- OPTIONS WINDOW - Specified in install.rdf, launched from the Extension Manager -->
+<prefwindow id="tangoinfoPreferences" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="&prefwindow.title;" onload="tangoinfo.OptionController.onLoad();" onbeforeaccept="tangoinfo.OptionController.onAccept();">
+
+  <stringbundleset id="tangoinfo-stringbundleset"> 
+    <stringbundle id="tangoinfo-songbird-stringlink" src="chrome://songbird/locale/songbird.properties"/>
+  </stringbundleset> 
+
+  <prefpane id="tangoinfo-prefpane" label="&prefwindow.title;">
+    <preferences>
+      <preference id="showAlbumArt" name="extensions.tangoinfo.showAlbumArt" type="bool"/>
+        <preference id="dateformat" name="extensions.tangoinfo.dateformat" type="int"/>
+      <preference id="selected" name="extensions.tangoinfo.selected" type="string"/>
+            <preference id="numRows" name="extensions.tangoinfo.numRows" type="int" />
+    </preferences>
+    
+    <groupbox style="background:#FDD;">
+      <label style="color:#222;">&RestartNeeded;</label>
+    </groupbox>
+    
+    
+    <groupbox>
+      <caption label="&showgroup;"/>
+      <checkbox preference="showAlbumArt" label="&showAlbumArt;" />
+      <groupbox orient="vertical">
+        <label>&select;</label>
+        <separator />
+        <hbox>
+          <vbox flex="1">
+            <label>&list1;</label>
+            <listbox id="selectedlist" flex="1"/>
+          </vbox>
+          <vbox>
+            <spacer flex="2"/>
+              <button label="&lt;" oncommand="tangoinfo.OptionController.add();"/>
+              <button label="&gt;" oncommand="tangoinfo.OptionController.rem();"/>
+            <spacer flex="1"/>
+              <button label="&listup;" oncommand="tangoinfo.OptionController.up();"/>
+              <button label="&listdown;" oncommand="tangoinfo.OptionController.down();"/>
+            <spacer flex="2"/>
+          </vbox>
+          <vbox flex="1">
+            <label>&list2;</label>
+            <listbox id="avaiablelist" flex="1"/>
+          </vbox>
+        </hbox>
+      </groupbox>
+      <hbox align="center">
+        <label>&numRows;</label>
+        <textbox type="number" id="numRows" preference="numRows" flex="1" onchange="tangoinfo.OptionController.onNumChange(this)"/>
+      </hbox>
+    </groupbox>
+    
+  </prefpane>
+  
+  <script src="localecaption.js"/>
+  <script src="options.js"/>
+</prefwindow>
