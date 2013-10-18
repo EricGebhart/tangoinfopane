@@ -17,4 +17,6 @@ Localization.
 
 icons for browser buttons.
 
-preferences choices for website languages as available by Tango.Info, Todo Tango, and Wikipedia.
+Home and reload buttons.
+
+Preferences choices for website languages as available by Tango.Info, Todo Tango, and Wikipedia.
