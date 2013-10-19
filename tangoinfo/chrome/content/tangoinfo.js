@@ -218,7 +218,7 @@ function onDisplayPaneMenuPopup(commandString, menupopup, documentElement) {
             this.album_artist = item.getProperty(SBProperties.albumArtistName);
             this.artist = item.getProperty(SBProperties.artistName);
             this.trackname = item.getProperty(SBProperties.trackName);
-            this.composer = item.getProperty(SBProperties.composer);
+            this.composer = item.getProperty(SBProperties.composerName);
             if (this.album_artist == "") {
                 this.album_artist = this.artist;
             }
