@@ -9,10 +9,14 @@ When a product page on Tango.info is loaded the metadata from Tango.Info's track
 
 The matching is done purely by track number and disc number so it is very important to select the proper tracks to be updated in the library.
 
-Still to do.
-==============
 
-The search for todo tango could be better. It currently uses google site search which is not ideal.
+Still to do
+============
 
-The Tango.Info icon should also be put in all the appropriate places. I'm just not sure where all of those places are.
+Localization.  
 
+icons for browser buttons.
+
+Home and reload buttons.
+
+Preferences choices for website languages as available by Tango.Info, Todo Tango, and Wikipedia.
