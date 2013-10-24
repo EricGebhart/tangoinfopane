@@ -46,6 +46,7 @@
                       <toolbarbutton  id="TI-A" label="Artist" type="radio" group="search"/>
                       <toolbarbutton  id="TI-C" label="Composer" type="radio" group="search"/>
                       <toolbarbutton  id="TI-TN" label="Song" type="radio" group="search"/>
+                      <toolbarbutton  id="TI-TINPButton" label="TINP" type="radio" group="search"/>
                   </hbox>
                   <label value = " "/>
                   <toolbarseparator />

@@ -207,7 +207,8 @@ function onDisplayPaneMenuPopup(commandString, menupopup, documentElement) {
               this.search = this.composer;
           if (document.getElementById("TI-TN").checked == true)
               this.search = this.trackname;
-
+          if (document.getElementById("TI-TINPButton").checked == true)
+              this.search = this.TINP;
       },
 
       get_current_item: function(item){
@@ -219,6 +220,7 @@ function onDisplayPaneMenuPopup(commandString, menupopup, documentElement) {
             this.artist = item.getProperty(SBProperties.artistName);
             this.trackname = item.getProperty(SBProperties.trackName);
             this.composer = item.getProperty(SBProperties.composerName);
+            this.TINP = this.getTINP(item);
             if (this.album_artist == "") {
                 this.album_artist = this.artist;
             }
@@ -228,6 +230,29 @@ function onDisplayPaneMenuPopup(commandString, menupopup, documentElement) {
             this.set_search_keyword();
 
         }
+      },
+
+      getTINP: function(item){
+            var text  = item.getProperty(SBProperties.comment);
+            var TIN = this.findTINP(text );
+
+            if (TIN == null){
+                text = item.getProperty(SBProperties.description);
+                TIN = this.findTINP(text);
+            }
+            return(TIN);
+
+      },
+
+      findTINP: function(text){
+          var TIN = null;
+          var pos = text.indexOf('TINP:');
+          if(pos != -1){
+             pos += 6;
+             text = text.slice(pos);
+             TIN  = text.split(' ')[0];
+          }
+          return(TIN);
       },
 
       setSelectedDeck:function(){
@@ -447,7 +472,10 @@ function onDisplayPaneMenuPopup(commandString, menupopup, documentElement) {
             if (this.keyword == ""){
                 url = "http://www.tango.info/eng"
             } else {
-                url = "http://tango.info/?q=" + escape(this.keyword);
+                if (document.getElementById("TI-TINPButton").checked == true)
+                    url = "http://tango.info/" + escape(this.keyword);
+                else
+                    url = "http://tango.info/?q=" + escape(this.keyword);
             }
         }
 
@@ -1232,6 +1260,10 @@ extension.Controller = {
 
     this._TI_TN_radio = document.getElementById("TI-TN");
     this._TI_TN_radio.addEventListener("command",
+           function() { extension.Controller.get_current_item(); }, false);
+
+    this._TI_TINP_radio = document.getElementById("TI-TINPButton");
+    this._TI_TINP_radio.addEventListener("command",
            function() { extension.Controller.get_current_item(); }, false);
 
     this._TI_radio = document.getElementById("TI");
