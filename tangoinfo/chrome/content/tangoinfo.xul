@@ -14,33 +14,33 @@
         onunload="doUnload();"
         >
 
-    <hbox style="margin:1em;margin-right:1em" flex="1">
+    <hbox flex="1">
 
-        <groupbox flex="1">
+        <vbox flex="1">
             <toolbox>
                <toolbar id="nav-toolbar">
                   <toolbarbutton label="Back" id="backbutton"/>
                   <toolbarbutton label="Forward" id="forwardbutton"/>
                   <toolbarbutton label="View Tracks" id="ViewTracks" disabled="true"/>
 
-                  <label value = " "/>
+                  <spacer flex="1"/>
                   <toolbarseparator />
-                  <label value = " "/>
+                  <spacer flex="1"/>
                   <hbox>
                       <toolbarbutton  id="Selected" label="Selected" type="radio" group="selection" checked="true"/>
                       <toolbarbutton  id="Nowplaying" label="Now Playing" type="radio" group="selection"/>
                   </hbox>
-                  <label value = " "/>
+                  <spacer flex="1"/>
                   <toolbarseparator />
-                  <label value = " "/>
+                  <spacer flex="1"/>
                   <hbox>
                       <toolbarbutton  id="TI" label="Tango.Info" checked="true" type="radio" group="source"/>
                       <toolbarbutton  id="Todotango" label="Todo Tango" type="radio" group="source"/>
                       <toolbarbutton  id="Wikipedia" label="Wikipedia" type="radio" group="source"/>
                   </hbox>
-                  <label value = " "/>
+                  <spacer flex="1"/>
                   <toolbarseparator />
-                  <label value = " "/>
+                  <spacer flex="1"/>
                   <hbox>
                       <toolbarbutton  id="TI-AA" label="Album Artist" checked="true" type="radio" group="search"/>
                       <toolbarbutton  id="TI-A" label="Artist" type="radio" group="search"/>
@@ -48,12 +48,15 @@
                       <toolbarbutton  id="TI-TN" label="Song" type="radio" group="search"/>
                       <toolbarbutton  id="TI-TINPButton" label="TINP" type="radio" group="search"/>
                   </hbox>
-                  <label value = " "/>
+                  <spacer flex="1"/>
                   <toolbarseparator />
-                  <label value = " "/>
+                  <spacer flex="1"/>
                   <toolbarbutton label="Find" id="findbutton"/>
                   <textbox id="SearchField" type="search" searchbutton="true"/>
                   <toolbarbutton  id="helpbutton" label="Help"/>
+                  <spacer flex="1"/>
+                  <toolbarseparator />
+                  <toolbarseparator />
                 </toolbar>
             </toolbox>
 
@@ -101,56 +104,70 @@
 
 </tree>
 
-        </groupbox>
+        </vbox>
 
-        <groupbox id="tangoinfo-toolbox" hidden="1" style="display:none;">
-         <vbox>
-          <groupbox >
-              <button id="TI_Apply" label="Update Library"/>
-              <checkbox id="TI_onlyEmpty" label="Only update empty fields" selected="false"/>
+        <!-- <groupbox id="tangoinfo-toolbox" hidden="1" style="display:none;">
+             -->
+         <vbox id="tangoinfo-toolbox" style="display:none;">
+             <toolbar>
+          <toobox >
+              <toolbarbutton id="TI_Apply" label="Update Library"/>
               <hbox flex="1">
-                  <button id="TI_clear" label="Clear All"/>
-                  <button id="TI_select" label="Select All"/>
+                  <toolbarbutton id="TI_clear" label="Clear All"/>
+                  <toolbarbutton id="TI_select" label="Select All"/>
               </hbox>
-          </groupbox>
+          </toobox>
+      </toolbar>
+
           <groupbox >
 
-            <groupbox>
-                <!-- <description value="Album Artist and Artist"/> -->
-                <hbox flex="1">
-                 <checkbox id="TI_AArtist" label="Album Artist" selected="false"/>
-                 <checkbox id="TI_Artist" label="Artist" selected="false"/>
-                </hbox>
-                 <separator class="groove-thin" orient="horizontal"/>
+              <checkbox id="TI_onlyEmpty" label="Update Empty Fields Only" selected="false"/>
+          </groupbox>
+
+             <separator class="groove-thin" orient="horizontal"/>
+
+              <groupbox>
+                <description value="Album Artist and Artist"/>
                  <checkbox id="TI_AA_A" label="Extract from Artist" selected="false"/>
                  <!--<checkbox id="TI_A_instrumental" label="Clear Artist if match" selected="false"/>
                       -->
              </groupbox>
 
                  <!--<checkbox id="TI_composer" label="Composer" selected="false"/>-->
+             <separator class="groove-thin" orient="horizontal"/>
+
              <groupbox>
+                <description value="Update Fields"/>
                  <hbox>
                      <vbox>
+                         <checkbox id="TI_AArtist" label="Album Artist" selected="false"/>
                          <checkbox id="TI_trackname" label="Title" selected="false"/>
                          <checkbox id="TI_album-title" label="Album title" selected="false"/>
                          <!-- <checkbox id="TI_disc-number" label="Disc Number" selected="false"/>
                               -->
                      </vbox>
                      <vbox>
+                         <checkbox id="TI_Artist" label="Artist" selected="false"/>
                          <checkbox id="TI_genre" label="Genre" selected="false"/>
                          <checkbox id="TI_year" label="Year" selected="false"/>
                      </vbox>
                  </hbox>
              </groupbox>
 
+             <separator class="groove-thin" orient="horizontal"/>
+
              <groupbox>
                  <!-- <description value="Append to comment"/> -->
+                 <!-- description does not go to the music file turning off -->
+                 <!--
                  <radiogroup>
                      <hbox flex="1">
                          <radio id="TI_comment" label = "Comment" selected="true"/>
                          <radio id="TI_description" label = "Description"/>
                      </hbox>
                  </radiogroup>
+                 -->
+                 <description value="Comment:"/>
                  <radiogroup>
                      <hbox flex="1">
                          <radio id="TI_prepend" label = "Prepend"/>
@@ -162,9 +179,10 @@
                  <checkbox id="TI_Collection" label="Collection" selected="false"/>
                  <checkbox id="TI_perfDate" label="Performance Date" selected="false"/>
              </groupbox>
-           </groupbox>
          </vbox>
+         <!--
         </groupbox>
+        -->
 
         <browser id="tangoinfo_tracktagger" width="200" height="200"
               frameborder="0" scrolling="auto" style="display:none;"/>

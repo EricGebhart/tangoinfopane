@@ -889,10 +889,13 @@ extension.tracks = {
 
   build_comment: function(){
 
-    if(this.checkboxes.ti_comment.selected == true)
+      // description is a songbird only data value
+      // It does not get written to the music file metadata
+      // Turning off until it can be persisted.
+    //if(this.checkboxes.ti_comment.selected == true)
         var property = 'comment';
-    else
-        var property = 'description';
+    //else
+     //   var property = 'description';
 
     var comment = this.current_item.getProperty(SBProperties[property]);
 
