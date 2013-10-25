@@ -221,6 +221,7 @@ function onDisplayPaneMenuPopup(commandString, menupopup, documentElement) {
             this.trackname = item.getProperty(SBProperties.trackName);
             this.composer = item.getProperty(SBProperties.composerName);
             this.TINP = this.getTINP(item);
+
             if (this.album_artist == "") {
                 this.album_artist = this.artist;
             }
@@ -246,11 +247,13 @@ function onDisplayPaneMenuPopup(commandString, menupopup, documentElement) {
 
       findTINP: function(text){
           var TIN = null;
-          var pos = text.indexOf('TINP:');
-          if(pos != -1){
-             pos += 6;
-             text = text.slice(pos);
-             TIN  = text.split(' ')[0];
+          if (text) {
+              var pos = text.indexOf('TINP:');
+              if(pos != -1){
+                 pos += 6;
+                 text = text.slice(pos);
+                 TIN  = text.split(' ')[0];
+              }
           }
           return(TIN);
       },
