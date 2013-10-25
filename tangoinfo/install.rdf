@@ -6,7 +6,7 @@
     <em:id>tangoinfoPane@songbirdnest.com</em:id>
     <em:type>2</em:type>
     <em:name>TangoInfoPane</em:name>
-    <em:version>2.1</em:version>
+    <em:version>2.3</em:version>
     <em:creator>Eric Gebhart</em:creator>
 
     <em:iconURL>chrome://tangoninfo/skin/icon.png</em:iconURL>
